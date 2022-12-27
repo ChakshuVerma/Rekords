@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
+const path = require("path")
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload')
@@ -27,6 +28,17 @@ app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:500
 app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload());
+
+
+app.use(express.static(path.join(__dirname, "./client/build")));
+// app.get("*", function (_, res) {
+//   res.sendFile(
+//     path.join(__dirname, "./client/build/index.html"),
+//     function (err) {
+//       res.status(500).send(err);
+//     }
+//   );
+// });
 
 // Router
 app.use(require('./router/auth'));

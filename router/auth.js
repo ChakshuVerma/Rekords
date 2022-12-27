@@ -133,7 +133,8 @@ router.get('/myprofile', authenticate, async (req, res) => {
 })
 
 router.get('/home', authenticate, (req, res) =>{
-    res.status(201).json({user: req.rootUser, message: "Welcome to dashboard"});
+    let obj = {user: req.rootUser, message: "Welcome to dashboard"};
+    res.status(201).json(obj);
 });
 
 router.use('/vocabulary', authenticate, require('./vocabulary'));
