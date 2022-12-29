@@ -16,6 +16,9 @@ mongoose.connect(DB,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
+    // app.listen
+    
+app.listen(PORT,() => console.log(`Server started at ${PORT}`));
     console.log('Connection Successful');
 }).catch((err) => {
     console.log(err);
@@ -48,5 +51,3 @@ const PORT = process.env.PORT || 5000;
 if(process.env.NODE_ENV == "production"){
     app.use(express.static("client/build"));
 }
-
-app.listen(PORT,() => console.log(`Server started at ${PORT}`));

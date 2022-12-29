@@ -9,8 +9,7 @@ import Navbar from '../../common/Navbar';
 
 const UserProfile = ({ user, userProgress }) => {
 
-    let { username, dob, phone, email } = user;
-    dob = dob.split('T')[0];
+    let { username,  phone, email } = user;
     const NavbarContents = [{ name: 'logout', link: '/logout' }];
 
     const [newUsername, setNewUsername] = useState(user.username);
@@ -143,7 +142,6 @@ const UserProfile = ({ user, userProgress }) => {
                         </div>
                     </div>
                     <div className="middle-div">
-                        <h2>{dob}</h2>
                         <h2>{email}</h2>
                     </div>
                     <div className="bottom-div">
